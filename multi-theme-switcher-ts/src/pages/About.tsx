@@ -35,7 +35,10 @@ const Badge: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   </span>
 );
 
-const TimelineItem: React.FC<{ title: string; detail: string }> = ({ title, detail }) => (
+const TimelineItem: React.FC<{ title: string; detail: string }> = ({
+  title,
+  detail,
+}) => (
   <div className="relative pl-6">
     <span
       aria-hidden
@@ -80,24 +83,28 @@ const FAQItem: React.FC<FAQ> = ({ q, a }) => {
 const About: React.FC = () => {
   return (
     <div className="space-y-8">
-      {/* Hero */}
       <header className="space-y-2">
         <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold">
           About this project
         </span>
         <h1 className="text-[var(--size-h1)] font-bold leading-tight">
-          Built for <span className="bg-gradient-to-r from-primary/80 to-primary bg-clip-text text-transparent">multi‑theme</span> apps
+          Built for{" "}
+          <span className="bg-gradient-to-r from-primary/80 to-primary bg-clip-text text-transparent">
+            multi‑theme
+          </span>{" "}
+          apps
         </h1>
         <p className="text-muted max-w-2xl">
-          A demonstration of how themes can alter not only colors but also fonts, spacing, and layout—while
-          staying lightweight, accessible, and secure.
+          A demonstration of how themes can alter not only colors but also
+          fonts, spacing, and layout—while staying lightweight, accessible, and
+          secure.
         </p>
       </header>
 
-      {/* Mission & Values */}
       <div className="grid gap-4 md:grid-cols-2">
         <Card title="Our Mission">
-          We built this app to demonstrate a multi-theme architecture with clear structural and visual differences.
+          We built this app to demonstrate a multi-theme architecture with clear
+          structural and visual differences.
         </Card>
 
         <Card title="Core Values">
@@ -110,7 +117,6 @@ const About: React.FC = () => {
         </Card>
       </div>
 
-      {/* Tech */}
       <Card title="Tech Stack">
         <div className="flex flex-wrap gap-2">
           <Badge>React</Badge>
@@ -123,22 +129,32 @@ const About: React.FC = () => {
         </div>
       </Card>
 
-      {/* Stats */}
       <section aria-label="Quick stats" className="grid gap-4 sm:grid-cols-3">
         <Stat label="Themes" value="3" />
         <Stat label="Bundle UI libs" value="0" />
         <Stat label="Pages" value="3+" />
       </section>
 
-      {/* Timeline */}
       <section className="grid gap-4 md:grid-cols-2">
         <Card title="Project Timeline">
           <div className="relative pl-3">
-            <div aria-hidden className="absolute left-1.5 top-0 bottom-0 w-px bg-primary/25" />
+            <div
+              aria-hidden
+              className="absolute left-1.5 top-0 bottom-0 w-px bg-primary/25"
+            />
             <div className="space-y-4">
-              <TimelineItem title="Concept" detail="Define multi-theme goals and structure" />
-              <TimelineItem title="Implementation" detail="Context + Tailwind tokens + Router" />
-              <TimelineItem title="Polish" detail="Preview modal, animations, accessibility & CSP" />
+              <TimelineItem
+                title="Concept"
+                detail="Define multi-theme goals and structure"
+              />
+              <TimelineItem
+                title="Implementation"
+                detail="Context + Tailwind tokens + Router"
+              />
+              <TimelineItem
+                title="Polish"
+                detail="Preview modal, animations, accessibility & CSP"
+              />
             </div>
           </div>
         </Card>
@@ -151,7 +167,6 @@ const About: React.FC = () => {
         </Card>
       </section>
 
-      {/* FAQ */}
       <section>
         <h2 className="text-[var(--size-h2)] font-semibold mb-3">FAQ</h2>
         <div className="space-y-2">
@@ -161,11 +176,11 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <Card title="Get Involved">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <p className="text-muted">
-            Want to see another theme or a different layout? Share your idea and we’ll add it.
+            Want to see another theme or a different layout? Share your idea and
+            we’ll add it.
           </p>
           <Link
             to="/contact"
