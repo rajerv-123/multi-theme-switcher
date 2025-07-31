@@ -9,28 +9,32 @@ import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import PreviewModal from "./components/PreviewModal";
 
-
 const App: React.FC = () => {
   const { theme } = useTheme();
   const withSidebar = theme === "theme-2";
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
   return (
-    <div className={`${withSidebar ? "md:grid md:grid-cols-[var(--sidebar-w)_1fr]" : ""} min-h-screen`}>
+    <div className={`min-h-screen flex flex-col`}>
       <Header onOpenPreview={() => setIsPreviewOpen(true)} />
-      <div className="pt-[calc(var(--header-h)+16px)] px-4 max-w-6xl mx-auto w-full md:col-start-2">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
+
+      <div className={`flex flex-1 ${withSidebar ? "md:grid md:grid-cols-[240px_1fr]" : ""}`}>
+        {withSidebar && (
+          <aside className="hidden md:block pt-[calc(var(--header-h)+16px)] px-4">
+            <Sidebar />
+          </aside>
+        )}
+
+        <main className="pt-[calc(var(--header-h)+16px)] px-4 max-w-6xl mx-auto w-full">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </main>
       </div>
-      {withSidebar && (
-        <div className="hidden md:block pt-[calc(var(--header-h)+16px)] px-4 md:col-start-1">
-          <Sidebar />
-        </div>
-      )}
+
       <PreviewModal isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} />
     </div>
   );
