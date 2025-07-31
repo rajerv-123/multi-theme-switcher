@@ -29,7 +29,6 @@ export function useProducts() {
           headers: {
             "Accept": "application/json",
           },
-          // No credentials sent to third-party API (privacy)
           credentials: "omit",
           referrerPolicy: "no-referrer",
         });

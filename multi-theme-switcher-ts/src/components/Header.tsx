@@ -1,13 +1,12 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useTheme, ThemeName } from "../theme/ThemeContext";
-import { AI_NAME } from "../config";
 
 type Props = {
   onOpenPreview: () => void;
 };
 
-const Header: React.FC<Props> = ({ onOpenPreview }) => {
+const Header: React.FC<Props> = () => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -15,18 +14,42 @@ const Header: React.FC<Props> = ({ onOpenPreview }) => {
       <div className="max-w-6xl mx-auto h-full px-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div aria-hidden className="w-7 h-7 rounded-md bg-primary"></div>
-          <Link to="/" className="font-bold">ThemePlay</Link>
-          <span className="text-muted text-sm hidden sm:inline">by {AI_NAME}</span>
+          <Link to="/" className="font-bold">
+            ThemePlay
+          </Link>
         </div>
 
         <nav className="hidden md:flex items-center gap-4">
-          <NavLink to="/" className={({isActive}) => isActive ? "underline" : "hover:underline"}>Home</NavLink>
-          <NavLink to="/about" className={({isActive}) => isActive ? "underline" : "hover:underline"}>About</NavLink>
-          <NavLink to="/contact" className={({isActive}) => isActive ? "underline" : "hover:underline"}>Contact</NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive ? "underline" : "hover:underline"
+            }
+          >
+            Contact
+          </NavLink>
         </nav>
 
         <div className="flex items-center gap-2">
-          <label htmlFor="theme" className="sr-only">Theme</label>
+          <label htmlFor="theme" className="sr-only">
+            Theme
+          </label>
           <select
             id="theme"
             value={theme}
